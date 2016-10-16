@@ -10,7 +10,6 @@
   (:refer-clojure :exclude [dosync])
   (:require
     [clojure.walk    :refer [prewalk]]
-    [clojure.pprint  :as p]
     [cljs.analyzer   :as a]
     [clojure.java.io :as io]
     [clojure.string  :as s]))
@@ -42,16 +41,6 @@
 
 (defmacro macroexpand-all [form]
   (macroexpand-all* &env form))
-
-(defmacro mx [form]
-  `(println
-     ~(with-out-str
-        (p/write (macroexpand-all* &env form) :dispatch p/code-dispatch))))
-
-(defmacro mx2 [form]
-  `(println
-     ~(with-out-str
-        (p/write (macroexpand-all* &env form)))))
 
 ;; javelin cells ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
