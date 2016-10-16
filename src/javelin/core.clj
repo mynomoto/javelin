@@ -11,7 +11,6 @@
   (:require
     [clojure.walk    :refer [prewalk]]
     [cljs.analyzer   :as a]
-    [clojure.java.io :as io]
     [clojure.string  :as s]))
 
 (declare walk)
